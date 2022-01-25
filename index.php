@@ -6,11 +6,23 @@
  * 3. Déployez sur votre serveur et testez !
  */
 
-$from = '';
-$to = '';
-$message = 'Hello World, sending a simple mail !';
+$from = 'noah.decroix3@gmail.com';
+$to = 'yskaa59570@gmail.com';
+$message = wordwrap('Mon super long message Mon super long message Mon super long message 
+Mon super long message Mon super long message Mon super long message Mon super long message Mon super long message 
+Mon super long message Mon super long message Mon super long message Mon super long message Mon super long message 
+Mon super long message Mon super long message Mon super long message Mon super long message Mon super long message 
+Mon super long message Mon super long message Mon super long message Mon super long message Mon super long message 
+', 70);
 // TODO Votre code ici.
-
+$sucess = mail($to, 'Exo', $message );
+if (!$sucess) {
+    echo "Le mail ne s'est pas envoyé";
+}
+else {
+    echo "Le mail c'est envoyé.";
+    file_put_contents('message.txt', $message,FILE_APPEND);
+}
 
 /**
  * 4. Commentez le code précédent, mais gardez les variables $from et $to
